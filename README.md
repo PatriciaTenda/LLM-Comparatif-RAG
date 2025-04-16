@@ -19,26 +19,30 @@ Le projet s’inscrit dans une logique de respect de la confidentialité des don
 
 ---
 
-##  Structure du dépôt
+## 📁 Structure du dépôt
 
-├── prompts/               #  Contient les prompts de test (questions types pour RAG)
+## 📁 Structure du dépôt
+
+```
+
+├── prompts/                 # Contient les prompts de test (questions types pour RAG)
 │   └── rag_queries.json
 │
-├── scripts/               #  Scripts Python pour exécuter les modèles et enregistrer les résultats
+├── scripts/                 # Scripts Python pour exécuter les modèles et enregistrer les résultats
 │   └── run_tests.py
 │
-├── results/               #  Données de sortie (réponses, temps, usage mémoire, etc.)
+├── results/                 # Données de sortie (réponses, temps, usage mémoire, etc.)
 │   └── model_outputs.csv
 │
-├── analysis/              #  Notebooks d’analyse et visualisations
+├── analysis/                # Notebooks d’analyse et visualisations
 │   └── analysis.ipynb
 │
-├── report/                #  Rapport final du projet + support de présentation
+├── report/                  # Rapport final du projet + support de présentation
 │   └── rapport_final.md / .pdf
 │
-├── PLAN.md                #  Plan d’organisation du projet (planning, étapes, métriques)
-├── README.md              #   générale du projet (ce fichier)
-
+├── PLAN.md                  # Plan d’organisation du projet (planning, étapes, métriques)
+└── README.md                # Présentation générale du projet (ce fichier)
+```
 
 ---
 
