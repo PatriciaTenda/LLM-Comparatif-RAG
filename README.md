@@ -21,7 +21,6 @@ Le projet s’inscrit dans une logique de respect de la confidentialité des don
 
 ##  Structure du dépôt
 
-.
 ├── prompts/               #  Contient les prompts de test (questions types pour RAG)
 │   └── rag_queries.json
 │
@@ -37,8 +36,8 @@ Le projet s’inscrit dans une logique de respect de la confidentialité des don
 ├── report/                #  Rapport final du projet + support de présentation
 │   └── rapport_final.md / .pdf
 │
-├── PLAN.md                # 🧭 Plan d’organisation du projet (planning, étapes, métriques)
-├── README.md              # 📝 Présentation générale du projet (ce fichier)
+├── PLAN.md                #  Plan d’organisation du projet (planning, étapes, métriques)
+├── README.md              #   générale du projet (ce fichier)
 
 
 ---
