@@ -21,8 +21,6 @@ Le projet s’inscrit dans une logique de respect de la confidentialité des don
 
 ## 📁 Structure du dépôt
 
-## 📁 Structure du dépôt
-
 ```
 
 ├── prompts/                 # Contient les prompts de test (questions types pour RAG)
