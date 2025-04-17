@@ -1,25 +1,39 @@
-🔒 Projet privé — Ce travail a été réalisé dans le cadre d’un projet professionnel encadré par [GRETA Centre Val de loire] pour le compte d’un partenaire entreprise.
+🔒 Projet privé — Ce travail a été réalisé dans le cadre d’un projet professionnel encadré par [Greta Centre-Val de Loire] pour le compte d’un partenaire entreprise.
 
 #  Évaluation Comparative de Modèles de Langage Locaux pour Application RAG
 
 ##  Contexte
 
-Dans le cadre de ma formation en Intelligence Artificielle, ce projet a pour objectif d’évaluer plusieurs **modèles de langage locaux (LLMs)** afin d’identifier celui qui serait le plus adapté à une application de type **RAG (Retrieval-Augmented Generation)**, fonctionnant entièrement en local.
+Ce projet s’inscrit dans le cadre d’une mission professionnelle en Intelligence Artificielle, visant à construire une **méthodologie d’évaluation rigoureuse et automatisée** des modèles de langage locaux (**LLMs**) pour des cas d’usage **RAG** (Retrieval-Augmented Generation), le tout dans un environnement **100% local**.
 
-Le projet s’inscrit dans une logique de respect de la confidentialité des données, de performance locale et de fiabilité du raisonnement produit par les modèles.
+Il intègre une approche complète mêlant **tests, métriques, analyses** et **observabilité** afin d’identifier les modèles les plus adaptés à des contextes exigeants dans une logique de respect de la confidentialité des données, de performance locale, de fiabilité du raisonnement produit par les modèles et de robustesse.
 
 ---
 
 ##  Objectifs du projet
 
-- Comparer plusieurs LLMs open-source disponibles localement via Ollama ou LM Studio.
+- Définir une **méthodologie réutilisable** d’évaluation de modèles LLM
+- Mettre en œuvre un **pipeline automatisé** : prompts → modèles → évaluation → analyse
+- Comparer des LLMs open-source tournant en local (via Ollama / LM Studio)
+- Générer des **résultats chiffrés, interprétables et visualisables**
 - Évaluer la **qualité des réponses** produites sur des cas RAG typiques.
 - Mesurer les **performances** (temps de réponse, consommation mémoire, stabilité).
-- Identifier le modèle offrant le **meilleur compromis** pour une intégration locale efficace.
+- Identifier le modèle offrant le **meilleur compromis** pour une intégration locale efficace
+- Proposer un début de **système de monitoring** pour le suivi des performances dans le temps.
+
+---
+##  Étapes du pipeline
+
+1.  Préparation des prompts de test (cas réalistes RAG)
+2.  Exécution automatique des modèles sur chaque prompt
+3.  Collecte des réponses, temps, usages mémoire/CPU
+4.  Évaluation qualitative et quantitative (scoring, métriques)
+5.  Analyse comparative (tableaux, graphiques)
+6.  Monitoring : détection d’écarts, performances anormales (WIP)
 
 ---
 
-## 📁 Structure du dépôt
+## Structure du dépôt
 
 ```
 
@@ -64,11 +78,12 @@ Chaque modèle est évalué selon plusieurs **critères objectifs** :
 
 -  **Pertinence de la réponse**
 -  **Utilisation correcte du contexte**
--  **Temps de génération**
+-  **Temps de génération ou de réponse**
 -  **Consommation mémoire / CPU / GPU**
 -  **Verbosité**
 -  **Robustesse face aux erreurs**
 -  **Facilité d'intégration dans un pipeline RAG**
+-  **Observabilité (monitoring de cohérence)**
 
 ---
 
@@ -87,7 +102,13 @@ Le fichier `prompts/rag_queries.json` contient un ensemble de **questions simul�
 Les scripts Python permettent de tester automatiquement chaque modèle avec les prompts fournis :
 
 ```bash
-python scripts/run_tests.py --model mistral --prompts prompts/rag_queries.json
+    # Mise en place de l'environnement
+    py -3.12 -m venv .venv
+    .venv\Scripts\Activate.ps1  # ou activate.bat selon ton terminal
+    pip install -r requirements.txt
+
+    # Test des prompts
+    python scripts/run_tests.py --model mistral --prompts prompts/rag_queries.json
 ```
 Les résultats sont sauvegardés dans le dossier results/.
 
@@ -95,8 +116,9 @@ Les résultats sont sauvegardés dans le dossier results/.
 Les données collectées sont analysées dans le notebook analysis/analysis.ipynb via :
 
 - Tableaux comparatifs
-- Graphiques radar ou en barres
-- Matrice de performances
+- Graphiques radar et / ou en barres
+- Matrice de performances (Pour montrer comment chaque modèle se comporte en conditions réelles (temps, ressources, stabilité))
+- Matrices de scoring (Pour montrer la valeur des réponses produites (pertinence, logique, robustesse...))
 
 # Rapport
 Le rapport final comprend :
@@ -110,14 +132,14 @@ Le rapport final comprend :
 Disponible dans le dossier /report.
 
 # Auteur
-Projet réalisé par [PatriciaTenda], dans le cadre d’un projet d’évaluation professionnelle en Intelligence Artificielle, 2025.
+Projet réalisé par [ PatriciaTenda](https://github.com/PatriciaTenda/LLM-Comparatif-RAG/), Dans le cadre de la formation "Développeuse en Intelligence Artificielle", Greta Centre-Val de Loire – 2025.
 
 # Licence & Droits d’usage
 Ce projet a été réalisé dans le cadre d’une mission confiée par une entreprise partenaire, dans le cadre de ma formation professionnelle en Intelligence Artificielle.
 Le contenu de ce dépôt, y compris les scripts, données et analyses, est soumis à des droits réservés.
 Toute reproduction, diffusion ou utilisation sans autorisation expresse est interdite.
-Ce dépôt est mis à disposition uniquement à des fins pédagogiques et d’évaluation, dans un cadre strictement privé.
+Ce dépôt est mis à disposition uniquement à des fins pédagogiques et d’évaluation.
 
 # Remerciements
-Merci à l’équipe pédagogique, aux développeurs des modèles open-source, et à la communauté IA qui partage ses outils et connaissances.
+Merci à l’équipe pédagogique, aux développeurs des modèles open-source, et à la communauté IA qui partage ses outils et connaissances et les rendent accessibles.
 
